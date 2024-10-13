@@ -1,23 +1,28 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
 int main() {
-    int n, m;
-    cin >> n >> m;
-    vector<int> a(n);
-    for (int i = 0; i < n; ++i) {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int n;
+    cin >> n;
+    vector<long long int>a(n);
+    vector<long long int>b;
+    for (int i=0; i<n; i++){
         cin >> a[i];
     }
-    for (int i = 0; i < m; ++i) {
-        int vt, x;
-        cin >> vt >> x;
-        a.insert(a.begin() + (vt - 1), x);
+    for (int i=0; i<n; i++){
+        double x = sqrt(a[i]);
+        if (floor(x) == x){
+            b.push_back(i+1);
+        }
     }
-    cout << a.size() << endl;
-    for (int i = 0; i < a.size(); ++i) {
-        cout << a[i] << " ";
+    cout << b.size() << endl;
+    for (int i=0; i<b.size(); i++){
+        cout << b[i] << " ";
     }
     return 0;
 }
